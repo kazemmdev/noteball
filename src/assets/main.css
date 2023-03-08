@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button {
+  @apply px-2 py-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 transition-all duration-300 text-white rounded-lg;
+}
