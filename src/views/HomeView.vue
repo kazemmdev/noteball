@@ -14,6 +14,5 @@
 <script setup>
 import { ref } from "vue";
 import Modal from "@/components/Modal.vue";
-
 const showModal = ref(false);
 </script>

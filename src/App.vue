@@ -19,5 +19,9 @@
 </template>
 
 <script setup>
+import { provide, reactive } from "vue";
 import { RouterLink, RouterView } from "vue-router";
+
+const userData = reactive({ name: "Kazem", username: "k90mirzaei" });
+provide('userData', userData);
 </script>

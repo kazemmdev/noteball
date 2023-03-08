@@ -1,6 +1,6 @@
 <template>
   <teleport to="body">
-    <div v-if="modelValue" class="container">
+    <div v-if="modelValue" class="wrapper">
       <div class="backdrop" @click="$emit('update:modelValue', false)" />
       <div class="modal">
         <div class="relative h-8 flex items-center">
@@ -10,13 +10,14 @@
           </button>
         </div>
         <slot />
+        <div>My Name: {{ userData.name }}</div>
       </div>
     </div>
   </teleport>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from "vue";
+import { inject, onMounted, onUnmounted } from "vue";
 
 defineProps({
   modelValue: {
@@ -29,6 +30,8 @@ defineProps({
   },
 });
 
+const userData = inject("userData");
+
 const emit = defineEmits(["update:modelValue"]);
 
 const EscapeCloseHandler = (e) => {
@@ -39,14 +42,15 @@ const EscapeCloseHandler = (e) => {
 onMounted(() => {
   window.addEventListener("keydown", EscapeCloseHandler);
 });
+
 onUnmounted(() => {
   window.removeEventListener("keydown", EscapeCloseHandler);
 });
 </script>
 
 <style scoped>
-.container {
-  @apply absolute inset-0 flex items-center justify-center;
+.wrapper {
+  @apply absolute inset-0 flex items-center justify-center w-screen;
 }
 .backdrop {
   @apply bg-gray-600/80 fixed h-screen w-screen;
