@@ -5,8 +5,17 @@ export const useAuthStore = defineStore({
   state: () => ({
     email: "",
     password: "",
+    isLoggedIn: true,
     loading: false,
   }),
+  getters: {
+    getUser() {
+      return {
+        name: "Kazem",
+        username: "k90mirzaei",
+      };
+    },
+  },
   actions: {
     login() {
       this.loading = true;

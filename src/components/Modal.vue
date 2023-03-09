@@ -10,14 +10,13 @@
           </button>
         </div>
         <slot />
-        <div>My Name: {{ userData.name }}</div>
       </div>
     </div>
   </teleport>
 </template>
 
 <script setup>
-import { inject, onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted } from "vue";
 
 defineProps({
   modelValue: {
@@ -30,13 +29,10 @@ defineProps({
   },
 });
 
-const userData = inject("userData");
-
 const emit = defineEmits(["update:modelValue"]);
 
 const EscapeCloseHandler = (e) => {
   if (e.key === "Escape") emit("update:modelValue", false);
-  console.log(e.key, "from handler");
 };
 
 onMounted(() => {
@@ -56,7 +52,7 @@ onUnmounted(() => {
   @apply bg-gray-600/80 fixed h-screen w-screen;
 }
 .modal {
-  @apply bg-white w-full max-w-[480px] h-fit inset-0 px-6 py-4 rounded-lg mx-2 z-10;
+  @apply bg-white w-full max-w-[480px] h-fit inset-0 px-4 py-4 rounded-lg mx-2 z-10;
 }
 .close {
   @apply absolute h-8 w-8 right-0 top-0 rounded-full hover:bg-gray-200 transition-all text-xl hover:text-red-500;

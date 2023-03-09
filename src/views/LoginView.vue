@@ -28,7 +28,6 @@
       </div>
     </form>
   </div>
-  <pre>{{ auth }}</pre>
 </template>
 
 <script setup>
