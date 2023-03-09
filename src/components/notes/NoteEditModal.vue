@@ -12,7 +12,7 @@
 
 <script setup>
 import { onMounted, reactive, watch } from "vue";
-import { useNoteStore } from "@/store/notes";
+import { useNoteStore } from "@/stores/notes";
 import { vAutofocus } from "@/directives/vAutofocus";
 import Modal from "../Modal.vue";
 

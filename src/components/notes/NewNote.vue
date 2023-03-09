@@ -15,7 +15,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { useNoteStore } from "@/store/notes";
+import { useNoteStore } from "@/stores/notes";
 import { vAutofocus } from "@/directives/vAutofocus";
 
 const body = ref("");

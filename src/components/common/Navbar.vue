@@ -30,7 +30,7 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import { useOnline } from "@vueuse/core";
-import { useAuthStore } from "@/store/auth";
+import { useAuthStore } from "@/stores/auth";
 const isOnline = useOnline();
 const auth = useAuthStore();
 </script>

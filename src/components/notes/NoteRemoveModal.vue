@@ -9,7 +9,7 @@
 
 <script setup>
 import { onMounted, reactive } from "vue";
-import { useNoteStore } from "@/store/notes";
+import { useNoteStore } from "@/stores/notes";
 import Modal from "../Modal.vue";
 
 defineProps({

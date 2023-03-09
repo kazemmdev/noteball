@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { useNoteStore } from "@/store/notes";
+import { useNoteStore } from "@/stores/notes";
 import NoteBox from "@/components/notes/NoteBox.vue";
 import NewNote from "@/components/notes/NewNote.vue";
 const state = useNoteStore();
