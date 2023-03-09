@@ -2,7 +2,11 @@
   <div>
     <NewNote />
     <div class="flex flex-col gap-4">
-      <NoteBox v-for="item in state.notes" :key="item.id" :model="item" />
+      <NoteBox
+        v-for="item in state.notes.slice().reverse()"
+        :key="item.id"
+        :model="item"
+      />
     </div>
   </div>
 </template>

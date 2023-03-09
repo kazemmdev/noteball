@@ -14,11 +14,14 @@ export const useNoteStore = defineStore({
       return this.notes.find((item) => item.id == id)?.body;
     },
     setBody(id, body) {
-      const index = this.notes.findIndex((item) => item.id == id);
+      if (body.trim().length) {
+        const index = this.notes.findIndex((item) => item.id == id);
       this.notes[index] = { id, body };
+      }
     },
     storeNote(body) {
-      this.notes.push({ id: this.notes.length, body });
+      if (body.trim().length)
+        this.notes = [...this.notes, { id: this.notes.length, body }];
     },
   },
 });
