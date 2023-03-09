@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { onMounted, reactive } from "vue";
+import { onMounted, reactive, watch } from "vue";
 import { useNoteStore } from "@/store/notes";
 import { vAutofocus } from "@/directives/vAutofocus";
 import Modal from "../Modal.vue";
@@ -31,14 +31,20 @@ const emit = defineEmits(["update:modelValue"]);
 const notes = useNoteStore();
 
 const modal = reactive({ body: "", open: false });
+modal.body = notes.getBody(props.noteId);
 
 onMounted(() => {
   modal.open = true;
-  modal.body = notes.getBody(props.noteId);
 });
 
 const saveNote = () => {
   notes.setBody(props.noteId, modal.body);
   emit("update:modelValue", false);
 };
+
+watch(modal, () => {
+  if (!modal.open) {
+    emit("update:modelValue", false);
+  }
+});
 </script>
