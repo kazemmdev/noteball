@@ -22,6 +22,12 @@
         active-class="bg-green-200 text-green-600 px-2 rounded-full"
         >About</RouterLink
       >
+      <RouterLink
+        to="/login"
+        class="active:text-green-500 hover:text-green-700 transition-all"
+        active-class="bg-green-200 text-green-600 px-2 rounded-full"
+        >Login</RouterLink
+      >
     </nav>
     <RouterView />
   </div>
