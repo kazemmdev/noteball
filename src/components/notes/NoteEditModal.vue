@@ -14,7 +14,7 @@
 import { onMounted, reactive, watch } from "vue";
 import { useNoteStore } from "@/stores/notes";
 import { vAutofocus } from "@/directives/vAutofocus";
-import Modal from "../Modal.vue";
+import Modal from "@/components/common/Modal.vue";
 
 const props = defineProps({
   modelValue: {

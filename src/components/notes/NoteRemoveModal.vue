@@ -10,7 +10,7 @@
 <script setup>
 import { onMounted, reactive } from "vue";
 import { useNoteStore } from "@/stores/notes";
-import Modal from "../Modal.vue";
+import Modal from "@/components/common/Modal.vue";
 
 defineProps({
   noteId: {
