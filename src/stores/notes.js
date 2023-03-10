@@ -11,24 +11,32 @@ import {
 } from "firebase/firestore";
 import { db } from "@/libs/firebase";
 
-const notesCollections = collection(db, "notes");
+let notesCollections;
+let notesSubscriber = null;
 
 export const useNoteStore = defineStore({
   id: "note",
   state: () => ({
     notes: [],
-    loading: false,
+    loading: true,
   }),
   actions: {
+    init(uid) {
+      notesCollections = collection(db, "users", uid, "notes");
+    },
     getAll() {
       this.loading = true;
-      onSnapshot(query(notesCollections, orderBy("date", "desc")), (query) => {
-        this.notes = [];
-        query.forEach((doc) => {
-          this.notes = [...this.notes, { id: doc.id, ...doc.data() }];
-        });
-        this.loading = false;
-      });
+      if (notesSubscriber) notesSubscriber(); // unsubscribe from any active session
+      notesSubscriber = onSnapshot(
+        query(notesCollections, orderBy("date", "desc")),
+        (query) => {
+          this.notes = [];
+          query.forEach((doc) => {
+            this.notes = [...this.notes, { id: doc.id, ...doc.data() }];
+          });
+          this.loading = false;
+        }
+      );
     },
     get(id) {
       return this.notes.find((item) => item.id == id)?.body;
@@ -46,6 +54,9 @@ export const useNoteStore = defineStore({
     },
     async remove(id) {
       await deleteDoc(doc(notesCollections, id));
+    },
+    clear() {
+      this.notes = [];
     },
   },
 });

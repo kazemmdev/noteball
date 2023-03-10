@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar" v-if="auth.isLoggedIn">
     <div class="nav-inner">
       <div class="flex items-center gap-4">
         <RouterLink to="/" class="nav-link" active-class="nav-link-active"
@@ -9,23 +9,16 @@
           >About</RouterLink
         >
       </div>
-      <template v-if="auth.isLoggedIn">
-        <div class="flex gap-1">
-          <DarkToggler />
-          <div class="nav-user">
-            @{{ auth.getUser.username }}
-            <span
-              class="w-2 h-2 bg-gray-400 block rounded-full"
-              :class="isOnline && 'bg-green-600'"
-            />
-          </div>
+      <div class="flex gap-1">
+        <DarkToggler />
+        <div class="nav-user" @click="auth.logout">
+          @{{ auth.user?.username }}
+          <span
+            class="w-2 h-2 bg-gray-400 block rounded-full"
+            :class="isOnline && 'bg-green-600'"
+          />
         </div>
-      </template>
-      <template v-else>
-        <RouterLink to="/login" class="nav-link" active-class="nav-link-active"
-          >Login</RouterLink
-        >
-      </template>
+      </div>
     </div>
   </nav>
 </template>
