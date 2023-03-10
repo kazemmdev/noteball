@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
 import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView.vue";
+import { useAuthStore } from "@/stores/auth";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +30,17 @@ const router = createRouter({
       component: RegisterView,
     },
   ],
+});
+
+router.beforeEach(async (to, from) => {
+  const auth = useAuthStore();
+  
+  if (!auth.isLoggedIn && (to.name !== "login" && to.name !== "register")) {
+    return { name: "login" };
+  }
+  if (auth.isLoggedIn && (to.name === "login" || to.name === "register")) {
+    return false;
+  }
 });
 
 export default router;
