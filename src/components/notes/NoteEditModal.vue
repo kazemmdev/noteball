@@ -1,17 +1,7 @@
 <template>
-  <button
-    @click="modal.open = true"
-    class="flex-1 py-3 text-sm hover:bg-slate-50 active:bg-slate-100 transition"
-  >
-    Edit
-  </button>
+  <button @click="modal.open = true" class="btn">Edit</button>
   <Modal title="Edit the note" v-model="modal.open">
-    <textarea
-      :rows="4"
-      v-autofocus
-      v-model="modal.body"
-      class="w-full p-3 outline-none border-2 border-solid border-gray-100 focus:border-blue-500 rounded-lg transition mb-4 mt-2"
-    />
+    <textarea :rows="4" v-autofocus v-model="modal.body" class="editor" />
     <button class="button h-10 w-20" @click="saveNote">Save</button>
   </Modal>
 </template>
@@ -36,3 +26,13 @@ const saveNote = () => {
   modal.open = false;
 };
 </script>
+
+<style scoped>
+.btn {
+  @apply flex-1 py-3 text-sm hover:bg-slate-50 active:bg-slate-100 dark:hover:bg-cyan-900/40 dark:active:bg-cyan-900/30 transition;
+}
+.editor {
+  @apply w-full p-3 outline-none border-2 border-solid border-gray-100 focus:border-blue-500 rounded-lg transition mb-4 mt-2 bg-transparent
+   dark:border-gray-700 dark:focus:border-blue-900;
+}
+</style>

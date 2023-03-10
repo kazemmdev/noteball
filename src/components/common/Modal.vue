@@ -52,9 +52,10 @@ onUnmounted(() => {
   @apply bg-gray-600/80 fixed h-screen w-screen;
 }
 .modal {
-  @apply bg-white w-full max-w-[480px] h-fit inset-0 px-4 py-4 rounded-lg mx-2 z-10;
+  @apply bg-white w-full max-w-[480px] h-fit inset-0 px-4 py-4 rounded-lg mx-2 z-10 dark:text-white dark:bg-gray-800;
 }
 .close {
-  @apply absolute h-8 w-8 right-0 top-0 rounded-full hover:bg-gray-200 transition-all text-xl hover:text-red-500;
+  @apply absolute h-8 w-8 right-0 top-0 rounded-full hover:bg-gray-200 transition-all text-xl hover:text-red-500
+  dark:hover:text-red-500 dark:text-white  dark:bg-gray-900/30 dark:hover:bg-gray-900/60;
 }
 </style>
