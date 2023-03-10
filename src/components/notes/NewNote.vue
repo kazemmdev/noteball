@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="p-3 bg-white rounded-lg transition mb-4 mt-2 border border-solid border-gray-100 focus:border-blue-500 shadow"
-  >
+  <div class="container">
     <textarea
       :rows="4"
       v-autofocus
@@ -22,7 +20,13 @@ const body = ref("");
 const notes = useNoteStore();
 
 const saveNote = () => {
-  notes.storeNote(body.value);
+  notes.store(body.value);
   body.value = "";
 };
 </script>
+
+<style scoped>
+.container {
+  @apply p-3 bg-white rounded-lg transition mb-4 mt-2 border border-solid border-gray-100 focus:border-blue-500 shadow;
+}
+</style>

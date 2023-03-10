@@ -1,4 +1,10 @@
 <template>
+  <button
+    @click="modal.open = true"
+    class="flex-1 py-3 text-sm hover:bg-slate-50 active:bg-slate-100 transition"
+  >
+    Edit
+  </button>
   <Modal title="Edit the note" v-model="modal.open">
     <textarea
       :rows="4"
@@ -11,40 +17,22 @@
 </template>
 
 <script setup>
-import { onMounted, reactive, watch } from "vue";
+import { reactive } from "vue";
 import { useNoteStore } from "@/stores/notes";
 import { vAutofocus } from "@/directives/vAutofocus";
 import Modal from "@/components/common/Modal.vue";
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    default: false,
-  },
-  noteId: {
-    type: Number,
-    default: -1,
-  },
-});
-const emit = defineEmits(["update:modelValue"]);
+const props = defineProps({ noteId: -1 });
 
 const notes = useNoteStore();
 
-const modal = reactive({ body: "", open: false });
-modal.body = notes.getBody(props.noteId);
-
-onMounted(() => {
-  modal.open = true;
+const modal = reactive({
+  body: notes.get(props.noteId),
+  open: false,
 });
 
 const saveNote = () => {
-  notes.setBody(props.noteId, modal.body);
-  emit("update:modelValue", false);
+  notes.update(props.noteId, modal.body);
+  modal.open = false;
 };
-
-watch(modal, () => {
-  if (!modal.open) {
-    emit("update:modelValue", false);
-  }
-});
 </script>
