@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@vueuse/core": "^9.13.0",
@@ -21,10 +22,5 @@
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7",
     "vite": "^4.1.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "prettier --write . && git add -A ."
-    }
   }
 }
