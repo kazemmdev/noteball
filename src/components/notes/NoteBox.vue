@@ -16,10 +16,10 @@
 </template>
 
 <script setup>
-import NoteRemoveModal from "./NoteRemoveModal.vue";
-import NoteEditModal from "./NoteEditModal.vue";
-import { computed } from "vue";
-import { useDateFormat } from "@vueuse/core";
+import NoteRemoveModal from './NoteRemoveModal.vue';
+import NoteEditModal from './NoteEditModal.vue';
+import { computed } from 'vue';
+import { useDateFormat } from '@vueuse/core';
 
 const props = defineProps({
   model: {
@@ -30,7 +30,7 @@ const props = defineProps({
 
 const date = computed(() => {
   const date = new Date(parseInt(props.model?.date));
-  const formated = useDateFormat(date, "YYYY-MM-DD");
+  const formated = useDateFormat(date, 'YYYY-MM-DD');
 
   return formated.value;
 });

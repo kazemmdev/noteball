@@ -12,16 +12,16 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useNoteStore } from "@/stores/notes";
-import { vAutofocus } from "@/directives/vAutofocus";
+import { ref } from 'vue';
+import { useNoteStore } from '@/stores/notes';
+import { vAutofocus } from '@/directives/vAutofocus';
 
-const body = ref("");
+const body = ref('');
 const notes = useNoteStore();
 
 const saveNote = () => {
   notes.store(body.value);
-  body.value = "";
+  body.value = '';
 };
 </script>
 

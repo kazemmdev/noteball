@@ -24,10 +24,10 @@
 </template>
 
 <script setup>
-import { RouterLink } from "vue-router";
-import { useOnline } from "@vueuse/core";
-import { useAuthStore } from "@/stores/auth";
-import DarkToggler from "@/components/common/DarkToggler.vue";
+import { RouterLink } from 'vue-router';
+import { useOnline } from '@vueuse/core';
+import { useAuthStore } from '@/stores/auth';
+import DarkToggler from '@/components/common/DarkToggler.vue';
 const isOnline = useOnline();
 const auth = useAuthStore();
 </script>

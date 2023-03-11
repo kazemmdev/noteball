@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import { useDark, useToggle } from "@vueuse/core";
+import { useDark, useToggle } from '@vueuse/core';
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -39,6 +39,6 @@ const toggleDark = useToggle(isDark);
 <style scoped>
 .btn {
   @apply w-6 h-6 flex items-center justify-center cursor-pointer rounded-full transition bg-gray-50 hover:bg-gray-100 active:bg-gray-200 
-  dark:bg-slate-900/20 dark:hover:bg-slate-900/40 dark:active:bg-slate-900/50 dark:text-white ;
+  dark:bg-slate-900/20 dark:hover:bg-slate-900/40 dark:active:bg-slate-900/50 dark:text-white;
 }
 </style>

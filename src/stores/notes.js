@@ -1,4 +1,4 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 import {
   collection,
   doc,
@@ -8,27 +8,27 @@ import {
   query,
   orderBy,
   addDoc,
-} from "firebase/firestore";
-import { db } from "@/libs/firebase";
+} from 'firebase/firestore';
+import { db } from '@/libs/firebase';
 
 let notesCollections;
 let notesSubscriber = null;
 
 export const useNoteStore = defineStore({
-  id: "note",
+  id: 'note',
   state: () => ({
     notes: [],
     loading: true,
   }),
   actions: {
     init(uid) {
-      notesCollections = collection(db, "users", uid, "notes");
+      notesCollections = collection(db, 'users', uid, 'notes');
     },
     getAll() {
       this.loading = true;
       if (notesSubscriber) notesSubscriber(); // unsubscribe from any active session
       notesSubscriber = onSnapshot(
-        query(notesCollections, orderBy("date", "desc")),
+        query(notesCollections, orderBy('date', 'desc')),
         (query) => {
           this.notes = [];
           query.forEach((doc) => {

@@ -7,10 +7,10 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
-import { useNoteStore } from "@/stores/notes";
-import { vAutofocus } from "@/directives/vAutofocus";
-import Modal from "@/components/common/Modal.vue";
+import { reactive } from 'vue';
+import { useNoteStore } from '@/stores/notes';
+import { vAutofocus } from '@/directives/vAutofocus';
+import Modal from '@/components/common/Modal.vue';
 
 const props = defineProps({ noteId: -1 });
 

@@ -13,11 +13,11 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
-import { useNoteStore } from "@/stores/notes";
-import NoteBox from "@/components/notes/NoteBox.vue";
-import NewNote from "@/components/notes/NewNote.vue";
-import Loading from "@/components/common/Loading.vue";
+import { onMounted } from 'vue';
+import { useNoteStore } from '@/stores/notes';
+import NoteBox from '@/components/notes/NoteBox.vue';
+import NewNote from '@/components/notes/NewNote.vue';
+import Loading from '@/components/common/Loading.vue';
 const state = useNoteStore();
 
 onMounted(() => {

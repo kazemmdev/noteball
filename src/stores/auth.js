@@ -1,15 +1,15 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
-} from "firebase/auth";
-import { auth } from "../libs/firebase";
-import { useNoteStore } from "./notes";
+} from 'firebase/auth';
+import { auth } from '../libs/firebase';
+import { useNoteStore } from './notes';
 
 export const useAuthStore = defineStore({
-  id: "auth",
+  id: 'auth',
   state: () => ({
     user: {},
     isLoggedIn: false,
@@ -21,14 +21,14 @@ export const useAuthStore = defineStore({
         if (user) {
           this.user.id = user.uid;
           this.user.email = user.email;
-          this.user.username = user.email.split("@")[0];
+          this.user.username = user.email.split('@')[0];
           this.isLoggedIn = true;
           noteStore.init(user.uid);
-          this.router.push("/");
+          this.router.push('/');
         } else {
           this.isLoggedIn = false;
-          noteStore.clear()
-          this.router.replace("/login");
+          noteStore.clear();
+          this.router.replace('/login');
         }
       });
     },

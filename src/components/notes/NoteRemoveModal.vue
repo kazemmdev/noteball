@@ -9,9 +9,9 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useNoteStore } from "@/stores/notes";
-import Modal from "@/components/common/Modal.vue";
+import { ref } from 'vue';
+import { useNoteStore } from '@/stores/notes';
+import Modal from '@/components/common/Modal.vue';
 
 defineProps({ noteId: -1 });
 

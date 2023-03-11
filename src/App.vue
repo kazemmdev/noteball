@@ -10,10 +10,10 @@
 </template>
 
 <script setup>
-import { RouterView } from "vue-router";
-import Navbar from "@/components/common/Navbar.vue";
-import { useAuthStore } from "./stores/auth";
-import { onMounted } from "vue";
+import { RouterView } from 'vue-router';
+import Navbar from '@/components/common/Navbar.vue';
+import { useAuthStore } from './stores/auth';
+import { onMounted } from 'vue';
 
 const authState = useAuthStore();
 onMounted(() => authState.init());

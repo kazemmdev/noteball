@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "prettier --write .  && git add -A ."
   },
   "dependencies": {
     "@vueuse/core": "^9.13.0",

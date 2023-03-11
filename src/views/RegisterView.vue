@@ -32,14 +32,14 @@
 </template>
 
 <script setup>
-import { useAuthStore } from "@/stores/auth";
-import { vAutofocus } from "@/directives/vAutofocus";
-import { reactive } from "vue";
+import { useAuthStore } from '@/stores/auth';
+import { vAutofocus } from '@/directives/vAutofocus';
+import { reactive } from 'vue';
 
 const auth = useAuthStore();
 const credentials = reactive({
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 });
 
 const handleSubmit = () => {

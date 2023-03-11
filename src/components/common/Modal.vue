@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted } from 'vue';
 
 defineProps({
   modelValue: {
@@ -25,22 +25,22 @@ defineProps({
   },
   title: {
     type: String,
-    default: "No title specified!",
+    default: 'No title specified!',
   },
 });
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 
 const EscapeCloseHandler = (e) => {
-  if (e.key === "Escape") emit("update:modelValue", false);
+  if (e.key === 'Escape') emit('update:modelValue', false);
 };
 
 onMounted(() => {
-  window.addEventListener("keydown", EscapeCloseHandler);
+  window.addEventListener('keydown', EscapeCloseHandler);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("keydown", EscapeCloseHandler);
+  window.removeEventListener('keydown', EscapeCloseHandler);
 });
 </script>
 

@@ -32,8 +32,8 @@
 </template>
 
 <script setup>
-import { useAuthStore } from "@/stores/auth";
-import { vAutofocus } from "@/directives/vAutofocus";
+import { useAuthStore } from '@/stores/auth';
+import { vAutofocus } from '@/directives/vAutofocus';
 
 const auth = useAuthStore();
 </script>
