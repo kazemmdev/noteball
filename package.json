@@ -24,7 +24,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx prettier --write ."
+      "pre-commit": "prettier --write . && git add -A ."
     }
   }
 }
